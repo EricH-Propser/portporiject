@@ -1,0 +1,19 @@
+
+    <% include ../partials/header %>
+<head>
+    <style type ="text/css">
+   
+    img{margin:auto;height:200px;width:200px;display:block;}
+    h5{text-align:center;}
+    </style>
+</head>
+<form method="POST" action="/post/<%=iden%>/invite">
+    <div class="container">
+         <label for="find"  >Invite User</label>
+        
+        <input type="text" name="person" id="Text" Placeholder ="Username" class="form-control" />
+        <button class="btn btn-success center-align pull-right" >Submit</button>
+    </div>
+</form>
+
+    <% include ../partials/footer %>

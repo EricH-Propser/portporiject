@@ -1,0 +1,78 @@
+<% include ../partials/header.ejs %>
+
+
+
+
+
+
+<div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome To GetTechExp</h1>
+             <p>This Site is currently in AlphaBuild v.1.2.9</p>
+             <p>
+                <a class="btn btn-primary btn-large"  href="/profile/<%=user._id %>">Goto your profile</a>
+             </p>
+         </div>
+     </header>
+     <form action="/index/search" method="POST">
+         <label for="Search"  >Type</label>
+        <select name="type">
+        <option value="Web App">Web App</option>
+        <option value="MobileApp">Mobile App</option>
+        <option value="App">App</option>
+        </select>
+        <button>Search</button>
+     </form>
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% if(type==="all"){ %>
+        <% for(x=0;x<allposts.length;x++){%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= allposts[x].image %>">
+                   <div class="caption">
+                       <h4><%= allposts[x].name %></h4>
+                       <h4><strong>Tags</strong></h4>
+                       <% for(i=0;i<allposts[x].tags.length;i++){ %>
+                          <% if(i+1===allposts[x].tags.length){ %>
+                           <a href="/index/tags/<%= allposts[x].tags[i] %>"> <%= allposts[x].tags[i] %> </a>
+                          <% }else{ %>
+                          <a href="/index/tags/<%= allposts[x].tags[i] %>"><%= allposts[x].tags[i] %> </a>
+                   
+                   
+                        <% }} %> 
+                    </div>
+                   <p>
+                       <a href="/post/<%= allposts[x]._id %>" class="btn btn-primary">more info</a> 
+                   </p>
+                </div>
+            </div>
+        <% }; %>
+        <% }else{ %>
+          <% for(x=0;x<allposts.length;x++){ %>
+          <% if(allposts[x].type === type ){ %>
+
+               <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= allposts[x].image %>">
+                   <div class="caption">
+                       <h4><%= allposts[x].name %></h4>
+                       <h4><strong>Tags</strong></h4>
+                       <%= allposts[x].tags.length %>
+                       <% for(i=0;i<allposts[x].tags.length;i++){ %>
+                         <a href="/index/tags/<%= allposts[x].tags[i] %>"><%= allposts[x].tags[i] %></a> 
+                   
+                   
+                        <% } %> 
+                    </div>
+                   <p>
+                       <a href="/post/<%= allposts[x]._id %>" class="btn btn-primary">more info</a> 
+                   </p>
+                </div>
+            </div>
+          <% } %>
+          <% } %>
+          <% } %>
+</div>
+
+<% include ../partials/footer.ejs %>

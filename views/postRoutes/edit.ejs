@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<html lang="en">
+    <div class="container">
+
+      <form action="/posts/<%=post._id %>/edit?_method=PUT" method="POST">
+        <h2 class="form-signin-heading">Update post</h2>
+        <label for="inputUsername" iclass="sr-only">Name</label>
+        <input type="text" id="inputUsername"  name ="post[name]" placeholder="Post's Name" class="form-control"  value = "<%=post.name %>" required autofocus>
+        <label for="inputPassword" iclass="sr-only">Image</label>
+        <input type="text" id="inputPassword"  class="form-control" name ="post[image]" placeholder="Image"  value = "<%=post.image %>" required autofocus>
+        <label for="inputTitle" iclass="sr-only">Info</label>
+        <input type="text" id="inputTitle"  class="form-control"  name ="post[info]" placeholder="Post's Info"  value = "<%=post.info %>" required>
+        <label for="inputBio" iclass="sr-only">Type</label>
+        <input type="text" id="inputBio"  class="form-control" name ="post[type]" placeholder="Post's Type"  value = "<%=post.type %>" required>
+         <label for="inputmembers" iclass="sr-only">Members needed</label>
+        <input type="text" id="inputtags"  class="form-control" name ="post[orginneed]" placeholder="Team's Members" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Edit</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+
+<% include ../partials/footer %>

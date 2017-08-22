@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+
+  <body>
+
+
+    <div class="container">
+
+      <form action="/profile/<%=currentuser._id %>/post" method="POST">
+        <h2 class="form-signin-heading">Start Team</h2>
+        <label for="inputUsername" iclass="sr-only">Name</label>
+        <input type="text" id="inputUsername"  name ="post[name]" placeholder="Teams's Name" class="form-control" required autofocus>
+        <label for="inputPassword" iclass="sr-only">Image</label>
+        <input type="text" id="inputPassword"  class="form-control teaxt-area textarea" name ="post[image]" placeholder="Image" required autofocus>
+        <label for="inputPassword" iclass="sr-only">Text</label>
+        <textarea class="form-control" name="post[info]"></textarea>
+        <label for="Search"  >Type</label>
+        <select name="post[type]">
+        <option value="Web App">Web App</option>
+        <option value="MobileApp">Mobile App</option>
+        <option value="App">App</option>
+        </select>
+         <label for="inputtags" iclass="sr-only">Tags</label>
+        <input type="text" id="inputtags"  class="form-control" name ="post[tags]" placeholder="Team's Tags" required>
+        <label for="inputmembers" iclass="sr-only">Members Needed</label>
+        <input type="number" id="inputtags"  class="form-control" name ="post[orginneed]" placeholder="Team's Members" required>
+       
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

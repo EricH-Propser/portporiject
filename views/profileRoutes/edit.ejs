@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<% include ../partials/header %>
+
+  <body>
+
+
+    <div class="container">
+
+      <form action="/profile/<%=currentuser._id %>/edit?_method=PUT" method="POST">
+        <h2 class="form-signin-heading">Update profile</h2>
+        <label for="inputUsername" iclass="sr-only">Name</label>
+        <input type="text" id="inputUsername"  name ="profile[title]" placeholder="profile's Title" class="form-control"  value = "<%=currentuser.profile.title %>" required autofocus>
+        <label for="inputPassword" iclass="sr-only">Image</label>
+        <input type="text" id="inputPassword"  class="form-control" name ="profile[image]" placeholder="Image"  value = "<%=currentuser.profile.image %>" required autofocus>
+        <label for="inputTitle" iclass="sr-only">Info</label>
+        <input type="text" id="inputTitle"  class="form-control"  name ="profile[bio]" placeholder="profile's Bio"  value = "<%=currentuser.profile.bio %>" required>
+        <label for="inputTitle" iclass="sr-only">Skills</label>
+
+         
+        <input type="text" id="inputTitle"  class="form-control"  name ="profile[skills]" placeholder="Your Skills" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Edit</button>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

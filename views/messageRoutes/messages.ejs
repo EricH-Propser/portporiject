@@ -1,0 +1,57 @@
+<% include ../partials/header.ejs %>
+     <div class="container">
+        <h1 class="jumbotron">Your received messages:</h1>
+        <div class="container" >
+    <% messages.forEach(function(message){ %>
+                     <div class="row">
+                        <div class="col-md-12">
+                            <a href="/profile/<%=message.author.id%>"><strong><%= message.author.username %></strong></a>
+                            <form id="delete-form" action="/messages/<%=message._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger pull-right" value="Delete">
+                            </form>
+                            <% if(message.link){ %>
+                               <%=message.text %> <a class="btn btn-xs btn-success" href="<%= message.link %>">JOIN </a>
+                                <% }else{ %>
+                                <p>
+                                    <%= message.text %> 
+                                </p>
+                                <% } %>
+                            
+                               
+                            
+                       
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            </div>
+                    
+      <div class="container">
+        <h1 class="jumbotron">Your sent messages:</h1>
+        <div class="container" >
+    <% sent.forEach(function(messages){ %>
+                     <div class="row">
+                        <div class="col-md-12">
+                            <a href="/profile/<%=messages.author.id%>"><strong><%= messages.author.username %></strong></a>
+                             <form id="delete-form" action="/messages/<%=messages._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-xs btn-danger pull-right" value="Delete">
+                            </form>
+                            <% if(messages.link){ %>
+                               Invite Sent to User <%= messages.receiver.id %>
+                                <% }else{ %>
+                                <p>
+                                    <%= messages.text %> 
+                                </p>
+                        
+                                <% } %>
+                               
+                            
+                       
+                        </div>
+                    </div>
+                    <% }) %>              
+                    
+                    
+                    
+         
+    <% include ../partials/footer.ejs %>

@@ -1,0 +1,19 @@
+
+    <% include ../partials/header %>
+<head>
+    <style type ="text/css">
+   
+    img{margin:auto;height:200px;width:200px;display:block;}
+    h5{text-align:center;}
+    </style>
+</head>
+<form method="POST" action="/profile/<%=id%>/messages">
+    <div class="container">
+         <label for="Text"  >Leave a message</label>
+        
+        <textarea  name="message[text]" id="Text" Placeholder ="..." class="form-control" rows="5"></textarea>
+        <button class="btn btn-success center-align pull-right" >Submit</button>
+    </div>
+</form>
+
+    <% include ../partials/footer %>

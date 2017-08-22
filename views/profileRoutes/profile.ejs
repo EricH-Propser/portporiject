@@ -1,0 +1,42 @@
+<% include ../partials/header.ejs %> 
+ <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%= currentuser.profile.image %>">
+                <div class="caption-full">
+                    <h4 class="pull-right"></h4>
+                    <h4><a><%=currentuser.profile.title%></a></h4>
+                    Skills:
+                    <% currentuser.profile.tags.forEach(function(skill){ %>
+                    
+                    <a class=" btn btn-xs btn-info" href="/index/tags/<%=skill%>" ><%=skill%></a>
+                    <% }) %>
+                    <p><%= currentuser.profile.bio%></p>
+                    <p>
+                        <em>Registered <%= currentuser.creationdate.toString() %></em>
+                    </p>
+                    <% var iden = ide.toString()%>
+                    <% var ideners = currentuser._id.toString()%>
+                    <% if(iden === ideners){ %>
+                        <a class="btn btn-xs btn-warning" href="/profile/<%= ide%>/edit">Edit profile</a>
+                        <a class="btn btn-xs btn-primary" href="/profile/<%= ide %>/post">Post to market</a>
+                        <a href="/profile/<%=iden %>/messages" class="btn-sm btn btn-primary">View your messages</a>
+                        Your Teams:
+                        <% for(x=0;x<found.length;x++){ %>
+                         <a href="/post/<%=found[x]._id%>"><%= found[x].name %> </a> 
+                        <% } %>
+                <% }else{%>
+                 </div>
+                  </div>
+            </div>
+            
+                <a href="/profile/<%=iden %>/newmessage" class="btn-sm btn btn-primary container">Message User</a><br>
+                <% } %>
+            
+                
+                  
+               
+
+
+
+
+<% include ../partials/footer.ejs %>
