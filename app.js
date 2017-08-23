@@ -1,4 +1,5 @@
-
+var YourPort = process.env.PORT
+var YourIP = process.env.IP
 var express = require("express");
 var mongoose = require("mongoose");
 var passport = require("passport"),
@@ -22,7 +23,7 @@ app.use(require("express-session")({
     resave:false,
     saveUnitialized: false
 }))
-mongoose.connect("mongodb://admin:root@ds127063.mlab.com:27063/profproject")
+mongoose.connect("mongodb://user:password@link")
 app.set("view engine","ejs");
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,6 +49,7 @@ app.use(profileRoutes)
 app.use(messageRoutes)
 app.use(postRoutes)
 app.use(inviteRoutes)
-app.listen(process.env.PORT,process.env.IP,function(){
+
+app.listen(YourPort,YourIP,function(){
     console.log("Site started")
 })
